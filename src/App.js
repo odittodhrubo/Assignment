@@ -1,23 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import Sidebar from './components/Sidebar';
+import Profile from './components/Profile';
+import ArticleList from './components/ArticleList';
 
 function App() {
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [activeSection, setActiveSection] = useState('profile');
+
+  const toggleSidebar = () => {
+    setSidebarCollapsed(!sidebarCollapsed);
+  };
+
+  const renderContent = () => {
+    switch (activeSection) {
+      case 'profile':
+        return <Profile />;
+      case 'articles':
+        return <ArticleList />;
+      default:
+        return <Profile />;
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <Container fluid className="p-0">
+        <Row className="g-0">
+          <Col xs={sidebarCollapsed ? 1 : 3} className="position-relative">
+            <Sidebar 
+              collapsed={sidebarCollapsed} 
+              toggleSidebar={toggleSidebar}
+              activeSection={activeSection}
+              setActiveSection={setActiveSection}
+            />
+          </Col>
+          <Col xs={sidebarCollapsed ? 11 : 9}>
+            <div className="p-4 position-relative">
+              <div className="jolly-roger">
+                <i className="bi bi-skull"></i>
+              </div>
+              
+              <div className="straw-hat">
+                <i className="bi bi-emoji-sunglasses"></i>
+              </div>
+              
+              {renderContent()}
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }

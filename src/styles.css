@@ -1,0 +1,58 @@
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  background: #f6f7fb;
+}
+.layout.collapsed {
+  grid-template-columns: 84px 1fr;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #fff;
+  border-right: 1px solid #eaeaea;
+  padding: 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.sidebar--collapsed .sidebar__name,
+.sidebar--collapsed .sidebar__email {
+  display: none;
+}
+.sidebar__profile {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+.sidebar__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.sidebar__name {
+  font-weight: 600;
+}
+.sidebar .nav-link.active {
+  background: #f1f5ff;
+  border-radius: 10px;
+}
+
+/* Content */
+.content-area {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.brand-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Table niceties */
+.table > :not(caption) > * > * {
+  vertical-align: middle;
+}
