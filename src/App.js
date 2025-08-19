@@ -42,7 +42,7 @@ function App() {
               </div>
               
               <div className="straw-hat">
-                <i className="bi bi-emoji-sunglasses"></i>
+                <i className="bi bi-emoji-sunglasses" style={{display: 'none'}}></i>
               </div>
               
               {renderContent()}

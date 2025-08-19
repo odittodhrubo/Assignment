@@ -37,8 +37,7 @@ const Sidebar = ({ collapsed, toggleSidebar, activeSection, setActiveSection }) 
           </Nav>
           
           <div className="text-center mt-5">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Shueisha_%282003%29.svg/320px-Shueisha_%282003%29.svg.png" className="publisher-logo" alt="Shueisha" />
-            <p className="text-muted mt-2">Published by Shueisha</p>
+            <img src="c:\Users\dhrub\Downloads\one_piece_logo.jpg" className="one-piece-logo" alt="One Piece" />
           </div>
         </div>
       )}

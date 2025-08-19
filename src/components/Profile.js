@@ -1,65 +1,69 @@
 import React from 'react';
-import { Card, Row, Col, Badge } from 'react-bootstrap';
 
 const Profile = () => {
   const user = {
     name: "Eiichiro Oda",
-    email: "oda.eiichiro@shueisha.jp",
+    email: "oda.eiichiro@example.com",
     joinDate: "October 1992",
-    profilePic: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Eiichiro_Oda_%282016%29.jpg/440px-Eiichiro_oda_%282016%29.jpg",
-    bio: "Eiichiro Oda (尾田 栄一郎, Oda Eiichirō) is a Japanese manga artist and the creator of the series One Piece. With more than 516 million copies sold, One Piece is both the best-selling manga and the best-selling comic series of all time.",
+    profilePic: "c:\Users\dhrub\OneDrive\Pictures\Screenshots\oda.png",
+    bio: "Eiichiro Oda is a Japanese manga artist and the creator of the series One Piece. With more than 516 million copies sold, One Piece is both the best-selling manga and the best-selling comic series of all time.",
     stats: {
-      published: 106,
+      volumes: 106,
       drafts: 5,
-      totalViews: "516M+"
+      chapters: 1100,
+      copies: "516M+"
     }
   };
 
   return (
     <div>
       <h2 className="heading-text">EIICHIRO ODA PROFILE</h2>
-      <Row>
-        <Col md={4}>
-          <Card className="mb-4 stats-card">
-            <Card.Body className="text-center">
+      <div className="row">
+        <div className="col-md-4">
+          <div className="profile-card mb-4">
+            <div className="card-body text-center white-text">
               <img 
                 src={user.profilePic} 
                 alt="Eiichiro Oda" 
                 className="profile-img mb-3"
               />
-              <h4>{user.name}</h4>
-              <p className="text-muted">{user.email}</p>
-              <p>Joined Shueisha: {user.joinDate}</p>
+              <h4 className="white-text mb-2">{user.name}</h4>
+              <p className="white-text mb-2">{user.email}</p>
+              <p className="white-text mb-3">Joined: {user.joinDate}</p>
               <div className="mt-3">
                 <span className="skill-badge">Storytelling</span>
                 <span className="skill-badge">Character Design</span>
                 <span className="skill-badge">World Building</span>
               </div>
-            </Card.Body>
-          </Card>
+            </div>
+          </div>
           
-          <Card className="stats-card">
-            <Card.Header>
+          <div className="stats-card">
+            <div className="card-header">
               <h5>Manga Statistics</h5>
-            </Card.Header>
-            <Card.Body>
-              <div className="d-flex justify-content-between mb-3">
-                <span>Volumes Released:</span>
-                <span className="stats-number">{user.stats.published}</span>
+            </div>
+            <div className="card-body white-text mb-2">
+              <div className="stats-item">
+                <span className="stats-label">Volumes Released:</span>
+                <span className="stats-number">{user.stats.volumes}</span>
               </div>
-              <div className="d-flex justify-content-between mb-3">
-                <span>Draft Chapters:</span>
+              <div className="stats-item">
+                <span className="stats-label">Draft Chapters:</span>
                 <span className="stats-number">{user.stats.drafts}</span>
               </div>
-              <div className="d-flex justify-content-between">
-                <span>Copies Sold:</span>
-                <span className="stats-number">{user.stats.totalViews}</span>
+              <div className="stats-item">
+                <span className="stats-label">Total Chapters:</span>
+                <span className="stats-number">{user.stats.chapters}</span>
               </div>
-            </Card.Body>
-          </Card>
-        </Col>
+              <div className="stats-item">
+                <span className="stats-label">Copies Sold:</span>
+                <span className="stats-number">{user.stats.copies}</span>
+              </div>
+            </div>
+          </div>
+        </div>
         
-        <Col md={8}>
+        <div className="col-md-8">
           <div className="content-section">
             <h3>About the Mangaka</h3>
             <p>{user.bio}</p>
@@ -96,8 +100,8 @@ const Profile = () => {
               <li>Sanda Kyōdō Award (2018)</li>
             </ul>
           </div>
-        </Col>
-      </Row>
+        </div>
+      </div>
     </div>
   );
 };
